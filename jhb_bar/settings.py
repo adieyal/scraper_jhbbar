@@ -17,6 +17,8 @@ if DEBUG:
 else:
     LOG_LEVEL='WARN'
     
+SLACK_WEBHOOK = os.environ.get("SLACK_WEBHOOK", None)
+
 BOT_NAME = 'jhb_bar'
 
 SPIDER_MODULES = ['jhb_bar.spiders']
