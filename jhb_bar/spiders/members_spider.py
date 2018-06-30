@@ -20,9 +20,6 @@ class MembersSpider(scrapy.Spider):
     name = "members"
     item = Member
 
-    def __init__(self):
-        pass
-
     def start_requests(self):
         urls = [
             'https://johannesburgbar.co.za/contact-details-of-all-members/',
