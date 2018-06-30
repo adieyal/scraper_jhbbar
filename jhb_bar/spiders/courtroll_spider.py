@@ -17,13 +17,7 @@ def dateorz(x):
 
 class CourtRollSpider(scrapy.Spider):
     name = "courtroll"
-    downloaddir = "courtrolls"
     item = CourtRoll
-
-    def __init__(self, *args, **kwargs):
-        if not os.path.exists(CourtRollSpider.downloaddir):
-            os.mkdir(CourtRollSpider.downloaddir)
-        super(CourtRollSpider, self).__init__(*args, **kwargs)
 
     def start_requests(self):
         urls = [

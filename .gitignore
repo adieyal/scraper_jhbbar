@@ -3,3 +3,5 @@
 .scrapy
 output/
 \.*.swp
+project.egg-info/
+build/

@@ -9,14 +9,19 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
+import os
+
 BOT_NAME = 'jhb_bar'
 
 SPIDER_MODULES = ['jhb_bar.spiders']
 NEWSPIDER_MODULE = 'jhb_bar.spiders'
 
-FEED_URI="output/%(name)s.json"
+root_folder = os.environ.get("SCRAPYD_DATADIR", "/data/")
+data_folder = os.path.join(root_folder, BOT_NAME)
+
+FEED_URI=os.path.join(data_folder, "%(name)s.json")
 FEED_FORMAT="jsonlines"
-FILES_STORE='output/courtrolls'
+FILES_STORE = os.path.join(data_folder, 'files/')
 #FEED_EXPORTERS = {
 #    'sqlite': 'jhb_bar.exporters.SqliteItemExporter',
 #}
