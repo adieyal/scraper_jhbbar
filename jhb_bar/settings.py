@@ -11,6 +11,12 @@
 
 import os
 
+DEBUG = os.environ.get("SCRAPYD_DEBUG", False)
+if DEBUG:
+    LOG_LEVEL='DEBUG'
+else:
+    LOG_LEVEL='WARN'
+    
 BOT_NAME = 'jhb_bar'
 
 SPIDER_MODULES = ['jhb_bar.spiders']
