@@ -35,3 +35,16 @@ class CourtRoll(scrapy.Item):
     def __repr__(self):
         x = self["name"]
         return x.encode("utf8")
+
+class CapeLawItem(scrapy.Item):
+    first_name = scrapy.Field()
+    surname = scrapy.Field()
+    practising_at = scrapy.Field()
+    specialisation = scrapy.Field()
+    telno = scrapy.Field()
+    location = scrapy.Field()
+    scraped_date = scrapy.Field(serializer=str)
+
+    def __repr__(self):
+        x = self["first_name"] + " " + self["surname"] + self["practising_at"]
+        return x.encode("utf8")
