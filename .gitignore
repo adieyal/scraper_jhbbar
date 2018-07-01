@@ -5,3 +5,4 @@ output/
 \.*.swp
 project.egg-info/
 build/
+local_settings.py
