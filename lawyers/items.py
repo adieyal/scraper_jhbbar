@@ -48,3 +48,19 @@ class CapeLawItem(scrapy.Item):
     def __repr__(self):
         x = "%s%s%s%s" % (self["first_name"], self["surname"], self["practising_at"], self["specialisation"])
         return x.encode("utf8")
+
+class KZNLawItem(scrapy.Item):
+    title = scrapy.Field()
+    initials = scrapy.Field()
+    surname = scrapy.Field()
+    firm_name = scrapy.Field()
+    location = scrapy.Field()
+    telno = scrapy.Field()
+    practice_number = scrapy.Field()
+    admission = scrapy.Field()
+    speciality_description = scrapy.Field()
+    scraped_date = scrapy.Field(serializer=str)
+
+    def __repr__(self):
+        x = "%s%s%s%s%s" % (self["initials"], self["surname"], self["firm_name"], self["practice_number"], self["admission"])
+        return x.encode("utf8")
