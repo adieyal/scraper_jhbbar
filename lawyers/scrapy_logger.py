@@ -1,5 +1,5 @@
 import logging
-import jhb_bar.settings as settings
+import lawyers.settings as settings
 from SlackLogger import SlackHandler
 
 def get_logger(name):

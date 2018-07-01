@@ -1,8 +1,8 @@
 import scrapy
 from dateutil import parser
 from datetime import datetime
-from jhb_bar.items import Member
-from jhb_bar.scrapy_logger import get_logger
+from lawyers.items import Member
+from lawyers.scrapy_logger import get_logger
 
 def eorz(x):
     return x[0].strip() if x else None

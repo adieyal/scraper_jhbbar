@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import scrapy
 from datetime import datetime
-from jhb_bar.items import CapeLawItem
-from jhb_bar.scrapy_logger import get_logger
+from lawyers.items import CapeLawItem
+from lawyers.scrapy_logger import get_logger
 
 class CapeLawSpider(scrapy.Spider):
     name = 'capelawyers'

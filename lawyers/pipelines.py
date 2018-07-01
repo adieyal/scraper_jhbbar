@@ -3,8 +3,7 @@ from scrapy.exceptions import DropItem
 import items
 import os
 import json
-from jhb_bar.scrapy_logger import get_logger
-
+from lawyers.scrapy_logger import get_logger
 
 class MemberDuplicatesPipeline(object):
 

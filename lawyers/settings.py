@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for jhb_bar project
+# Scrapy settings for lawyers project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -19,10 +19,10 @@ else:
     
 SLACK_WEBHOOK = os.environ.get("SLACK_WEBHOOK", None)
 
-BOT_NAME = 'jhb_bar'
+BOT_NAME = 'lawyers'
 
-SPIDER_MODULES = ['jhb_bar.spiders']
-NEWSPIDER_MODULE = 'jhb_bar.spiders'
+SPIDER_MODULES = ['lawyers.spiders']
+NEWSPIDER_MODULE = 'lawyers.spiders'
 
 root_folder = os.environ.get("SCRAPYD_DATADIR", "/data/")
 data_folder = os.path.join(root_folder, BOT_NAME)
@@ -31,11 +31,11 @@ FEED_URI=os.path.join(data_folder, "%(name)s.json")
 FEED_FORMAT="jsonlines"
 FILES_STORE = os.path.join(data_folder, 'files/')
 #FEED_EXPORTERS = {
-#    'sqlite': 'jhb_bar.exporters.SqliteItemExporter',
+#    'sqlite': 'lawyers.exporters.SqliteItemExporter',
 #}
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'jhb_bar (+http://www.yourdomain.com)'
+#USER_AGENT = 'lawyers (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -66,13 +66,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'jhb_bar.middlewares.JhbBarSpiderMiddleware': 543,
+#    'lawyers.middlewares.JhbBarSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'jhb_bar.middlewares.JhbBarDownloaderMiddleware': 543,
+#    'lawyers.middlewares.JhbBarDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -84,7 +84,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'jhb_bar.pipelines.MemberDuplicatesPipeline': 300,
+    'lawyers.pipelines.MemberDuplicatesPipeline': 300,
     'scrapy.pipelines.files.FilesPipeline' : 400,
 }
 

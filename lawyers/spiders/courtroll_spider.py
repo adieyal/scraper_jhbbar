@@ -1,7 +1,7 @@
 import scrapy
 from datetime import datetime
-from jhb_bar.items import CourtRoll
-from jhb_bar.scrapy_logger import get_logger
+from lawyers.items import CourtRoll
+from lawyers.scrapy_logger import get_logger
 
 class CourtRollSpider(scrapy.Spider):
     name = "courtroll"
