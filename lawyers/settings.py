@@ -15,7 +15,7 @@ DEBUG = os.environ.get("SCRAPYD_DEBUG", False)
 if DEBUG:
     LOG_LEVEL='DEBUG'
 else:
-    LOG_LEVEL='WARN'
+    LOG_LEVEL='ERROR'
     
 SLACK_WEBHOOK = os.environ.get("SLACK_WEBHOOK", None)
 
@@ -36,6 +36,7 @@ FILES_STORE = os.path.join(data_folder, 'files/')
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'lawyers (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -109,6 +110,7 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+FEED_EXPORT_ENCODING = 'utf-8'
 
 # Store any local config settings
 try:
