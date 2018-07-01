@@ -1,6 +1,4 @@
-import os
 import scrapy
-from dateutil import parser
 from datetime import datetime
 from jhb_bar.items import CourtRoll
 from jhb_bar.scrapy_logger import get_logger
