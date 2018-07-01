@@ -2,7 +2,7 @@
 *.pyc
 .scrapy
 output/
-\.*.swp
+\.*.sw[op]
 project.egg-info/
 build/
 local_settings.py
