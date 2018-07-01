@@ -6,8 +6,6 @@ from datetime import datetime
 from jhb_bar.items import Member
 from jhb_bar.scrapy_logger import get_logger
 
-logger = get_logger(__name__)
-
 def eorz(x):
     return x[0].strip() if x else None
 
@@ -23,8 +21,12 @@ class MembersSpider(scrapy.Spider):
     name = "members"
     item = Member
 
+    def __init__(self, *args, **kwargs):
+        self.logger.logger = get_logger(MembersSpider.name)
+        return super(MembersSpider, self).__init__(*args, **kwargs)
+    
     def start_requests(self):
-        logger.info("Started Johannesburg Bar spider")
+        self.logger.info("Started Johannesburg Bar spider")
         urls = [
             'https://johannesburgbar.co.za/contact-details-of-all-members/',
             'https://johannesburgbar.co.za/contact-details-of-junior-members/',

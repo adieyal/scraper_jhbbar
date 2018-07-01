@@ -5,7 +5,6 @@ import os
 import json
 from jhb_bar.scrapy_logger import get_logger
 
-logger = get_logger(__name__)
 
 class MemberDuplicatesPipeline(object):
 
@@ -39,10 +38,10 @@ class MemberDuplicatesPipeline(object):
             return item
 
     def close_spider(self, spider):
-        logger.info("{name} spider collected: {count} new records".format(
+        spider.logger.info("{name} spider collected: {count} new records".format(
             name=spider.name, count=spider.crawler.stats.get_value("records_collected"))
         )
-        logger.info("{name} spider dropped: {count} records as duplicates".format(
+        spider.logger.info("{name} spider dropped: {count} records as duplicates".format(
             name=spider.name, count=spider.crawler.stats.get_value("records_dropped"))
         )
         

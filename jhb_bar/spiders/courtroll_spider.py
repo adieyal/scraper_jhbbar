@@ -5,25 +5,16 @@ from datetime import datetime
 from jhb_bar.items import CourtRoll
 from jhb_bar.scrapy_logger import get_logger
 
-logger = get_logger(__name__)
-
-def eorz(x):
-    return x[0].strip() if x else None
-
-def dateorz(x):
-    try:
-        if type(x) == list:
-            x = x[0]
-        return parser.parse(x)
-    except (ValueError, TypeError, IndexError):
-        return None
-
 class CourtRollSpider(scrapy.Spider):
     name = "courtroll"
     item = CourtRoll
 
+    def __init__(self, *args, **kwargs):
+        self.logger.logger = get_logger(CourtRollSpider.name)
+        return super(CourtRollSpider, self).__init__(*args, **kwargs)
+
     def start_requests(self):
-        logger.info("Started Johannesburg Court Roll spider")
+        self.logger.info("Started Johannesburg Court Roll spider")
         urls = [
             'https://johannesburgbar.co.za/court-rolls/',
         ]
