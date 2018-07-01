@@ -46,5 +46,5 @@ class CapeLawItem(scrapy.Item):
     scraped_date = scrapy.Field(serializer=str)
 
     def __repr__(self):
-        x = self["first_name"] + " " + self["surname"] + self["practising_at"]
+        x = "%s%s%s%s" % (self["first_name"], self["surname"], self["practising_at"], self["specialisation"])
         return x.encode("utf8")

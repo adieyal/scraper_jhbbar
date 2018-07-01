@@ -24,13 +24,15 @@ class CapeLawSpider(scrapy.Spider):
         capelawitem = CapeLawItem()
         for chunk in response.xpath('//*[@id="tablepress-13"]/tbody/tr'):
             capelawitem = CapeLawItem(
-                first_name=chunk.xpath("./td[1]").extract_first(),
-                surname=chunk.xpath("./td[2]").extract_first(),
-                practising_at=chunk.xpath("./td[3]").extract_first(),
-                specialisation=chunk.xpath("./td[4]").extract_first(),
-                telno=chunk.xpath("./td[5]").extract_first(),
-                location=chunk.xpath("./td[6]").extract_first(),
+                first_name=chunk.xpath("./td[1]/text()").extract_first(),
+                surname=chunk.xpath("./td[2]/text()").extract_first(),
+                practising_at=chunk.xpath("./td[3]/text()").extract_first(),
+                specialisation=chunk.xpath("./td[4]/text()").extract_first(),
+                telno=chunk.xpath("./td[5]/text()").extract_first(),
+                location=chunk.xpath("./td[6]/text()").extract_first(),
                 scraped_date=datetime.now()
             )
-            yield capelawitem
+
+            if capelawitem["first_name"] and capelawitem["surname"]:
+                yield capelawitem
 
