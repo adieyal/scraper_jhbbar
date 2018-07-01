@@ -3,6 +3,9 @@ import scrapy
 from dateutil import parser
 from datetime import datetime
 from jhb_bar.items import CourtRoll
+from jhb_bar.scrapy_logger import get_logger
+
+logger = get_logger(__name__)
 
 def eorz(x):
     return x[0].strip() if x else None
@@ -20,6 +23,7 @@ class CourtRollSpider(scrapy.Spider):
     item = CourtRoll
 
     def start_requests(self):
+        logger.info("Started Johannesburg Court Roll spider")
         urls = [
             'https://johannesburgbar.co.za/court-rolls/',
         ]
