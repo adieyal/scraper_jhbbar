@@ -24,7 +24,9 @@ BOT_NAME = 'lawyers'
 SPIDER_MODULES = ['lawyers.spiders']
 NEWSPIDER_MODULE = 'lawyers.spiders'
 
-root_folder = os.environ.get("SCRAPYD_DATADIR", "/data/")
+root_folder = os.environ.get("SCRAPYD_DATADIR", "/tmp/data")
+if not os.path.exists("/tmp/data"):
+    os.mkdir("/tmp/data")
 data_folder = os.path.join(root_folder, BOT_NAME)
 
 FEED_URI=os.path.join(data_folder, "%(name)s.json")
