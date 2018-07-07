@@ -64,6 +64,21 @@ class FreeStateLawItem(scrapy.Item):
         x = "%s%s" % (self["name"], self["firm"])
         return x.encode("utf8")
 
+class NorthernLawItem(scrapy.Item):
+    name = scrapy.Field()
+    firm = scrapy.Field()
+    physical_address = scrapy.Field()
+    postal_address = scrapy.Field()
+    phone = scrapy.Field()
+    fax = scrapy.Field()
+    email = scrapy.Field()
+    lawyer_type = scrapy.Field()
+    scraped_date = scrapy.Field(serializer=str)
+
+    def __repr__(self):
+        x = "%s%s" % (self["name"], self["firm"])
+        return x.encode("utf8")
+
 class KZNLawItem(scrapy.Item):
     title = scrapy.Field()
     initials = scrapy.Field()
